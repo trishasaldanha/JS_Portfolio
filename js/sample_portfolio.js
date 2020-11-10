@@ -7,22 +7,24 @@ function closeForm() {
     document.getElementById("myForm").style.display = "none";
 }
 
-// This function covers the slide show
+// This function displays the first image in the slideshow when the page loads
 var slideIndex = 1;
 showSlides(slideIndex);
 
+//This function changes the slide when the left or right arrows are clicked
 function plusSlides(n) {
     showSlides(slideIndex += n);
 }
 
+// This function changes the slide when the dots are clicked
 function currentSlide(n) {
     showSlides(slideIndex = n);
 }
 
+
 function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
+    var slides = document.getElementsByClassName("mySlides"); // This takes all elements with the class name "mySlides" and stores them in the variable slides
+    var dots = document.getElementsByClassName("dot"); // This takes all elements with the class name "dot" and stores them in the variable dots
     if (n > slides.length) {slideIndex = 1};
     if (n < 1) {slideIndex = slides.length};
     for (i = 0; i < slides.length; i++) {
