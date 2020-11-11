@@ -219,7 +219,7 @@ footer {
     vertical-align: middle; /* This centers the images vertically within the slideshow container */
     height: auto; /* The height of the images is automatically adjusted based on the content, ie if your images are different sizes, they will display as different sizes */
     box-shadow: 0px 5px 10px 12px rgba(0, 0, 0, .75); /* Adds a shadow around the slideshow images */
-    width: auto; /* The width of the images is automatically adjusted based on the content */
+    width: 100%; /* The width of the images is automatically adjusted based on the content */
 }
 
 /* Next and previous buttons */
@@ -262,7 +262,7 @@ footer {
     font-size: 1.5vw;
     background-color: rgba(0, 0, 0, 0.75);
     font-weight: bold;
-    border-radius: 7px 7px 7px 7px;
+    border-radius: 0px 0px 7px 7px;
 }
 
 /* Number text (1/6, 2/6, etc.) */
