@@ -13,6 +13,7 @@ body {
     letter-spacing: .2vw; /* vw is a relative measurement, 1vw is equal to 1% of the viewport width */
     font-family: Avant Garde, Helvetica;
     font-size: 1.5vw; 
+    overflow-x: hidden; /* This prevents the horizontal scroll bar from appearing when the quote is hovered over */
 }
 
 /* This section contributes to the fade effect for the page that occurs when the page is loaded */
@@ -52,6 +53,12 @@ p {
     padding-right: 1vw; /* Relative padding equal to 1% of the viewport width */
 }
 
+/* Paragraph element hover effect */
+p:hover {
+    transition: transform 1s; /* This makes the transform effect last 1 second */
+	transform: scale(1.01); /* This makes the paragraphs increase slightly in size when hovered over */
+}
+
 /* Center class - this applies to all centered text */
 .center {
     text-align: center; /* This center aligns the text */
@@ -76,11 +83,18 @@ q {
 /* Image elements */
 img {
     filter: grayscale(75%); /* This rids our pictures of 75% of their color */
-    border-radius: 8px; /*Gives all images slightly rounded corners */
+    border-radius: 8px; /* Gives all images slightly rounded corners */
     max-width: 100%; /* Ensures all images stay within the width of their container */
     height: 100%; /* Sets the height of all images */
     display: block; /* By specifying block display we can ensure our images are able to be centered */
     margin: auto auto auto auto; /* This centers all images */
+}
+
+/* Image element hover effects */
+img:hover {
+	filter: grayscale(5%);  /* Brings back most of the image's color when hovered over */
+    transition: transform 1s; /* Transition lasts 1 second */
+	transform: scale(1.1); /* Image is increased slightly when hovered over */
 }
 
 /* The @media rule is used in media queries to apply different styles for different media/types of devices */
@@ -106,14 +120,14 @@ footer {
     position: fixed; /* This keeps the navbar at the top of the screen as we scroll */
     top: 0; /* This ensures no space is displayed above the navbar */
     width: 100%; /* This makes the navbar span the entire width of the page */
-    z-index: 1; /*This ensures other elements don't display over the navbar */
+    z-index: 1; /* This ensures other elements don't display over the navbar */
     -webkit-animation: moveNav 5s; /* Safari 4.0 - 8.0 */
-    animation: moveNav 5s;
+    animation: moveNav 5s; /* This makes the moveNav animation last 5 seconds */
 }
 
 /* The animation effect for moving the nav bar in from above the left of the screen on page load */
 @keyframes moveNav {
-    from {left: -100vw;} /*The navbar is starting off screen to the left */
+    from {left: -100vw;} /* The navbar is starting off screen to the left */
     to { left: 0vw;} /* This moves the navbar into place on the screen */
 }
 
@@ -130,6 +144,7 @@ footer {
     position: relative; /* This sets the text relative to its normal positioning, allowing us to use the animation below */
     -webkit-animation: moveNavText 5.75s; /* Animation for Safari 4.0 - 8.0 */
     animation: moveNavText 5.75s; /* Applies the moveNavText animation for 5.75s */ 
+    user-select: none; /* This prevents the navbar links from being highlighted when the user doubleclicks to close the contact form */
 }
 
 /* The animation effect for moving the nav bar links in from above the top of the screen on page load */
@@ -253,58 +268,52 @@ footer {
 .text {
     color: white; 
     padding: 1vw;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
+    position: absolute; /* This ensures the text is positioned within the image */
+    bottom: 0; /* This property sets the text at the bottom of the image */
+    width: 100%; /* The element covers the full width of the image */
+    text-align: center; /* The text is center aligned within the image */
     font-family: Perpetua, Rockwell Extra Bold;
-    letter-spacing: .1vw;
-    font-size: 1.5vw;
-    background-color: rgba(0, 0, 0, 0.75);
+    letter-spacing: .1vw; /* This gives slight spacing between the letters */
+    font-size: 1.5vw; /* Font size is relative to the size of the viewport width */
+    background-color: rgba(0, 0, 0, 0.75); /* Gives a slightly transparent black background */
     font-weight: bold;
-    border-radius: 0px 0px 7px 7px;
-}
-
-/* Number text (1/6, 2/6, etc.) */
-.Slide_Number {
-    display: none;
+    border-radius: 0px 0px 7px 7px; /* Gives the text background rounded corners on the bottom left and right corners */
 }
 
 /* Styling of the dots under the slideshow */
 .dot {
-    cursor: pointer;
-    height: 1vw;
+    cursor: pointer; /* The cursor changes to pointer when hovered over the dots */
+    height: 1vw; /* The dots are sized relative to the viewport width */
     width: 1vw;
-    margin: .25vw;
-    background-color: white;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-    position: relative;
-    z-index: 1;
+    margin: .25vw; /* adds additional spacing between the dots */ 
+    background-color: white; /* Makes the dots white */
+    border-radius: 50%; /* Makes the dots circles by rounding each corner */
+    display: inline-block; /* Allows the dots to sit next to eachother rather than on a new line */
+    transition: background-color 0.6s ease; /* When clicked on the dots transition to a different color when clicked or hovered over (the affect is defined below) */
+    z-index: 1; /* This ensures the dots will be displayed above any other elements */
 }
 
 /* Hover effect for slideshow dots */
 .active, .dot:hover {
-    background-color: black;
+    background-color: black; /* Sets the color of the dots when active or hovered over */
 }
 
 /* Fading animation for slideshow */
 .fade {
-    -webkit-animation-name: fade;
+    animation-name: fade; /* Fade animation is defined below */
+    animation-duration: 1.5s; /* The animation lasts 1.5 seconds */
+    -webkit-animation-name: fade; /* Same as above for Safari 4.0-8.0 */
     -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
 }
 
 @-webkit-keyframes fade {
-    from {opacity: 4;}
-    to{opacity: 1;}
+    from {opacity: .4;} /* Image starts transparent */
+    to {opacity: 1;} /* Image ends opaque */
 }
 
 @keyframes fade {
-    from {opacity: .4;}
-    to {opacity: 1;}
+    from {opacity: .4;} /* Image starts transparent */
+    to {opacity: 1;} /* Image ends opaque */
 }
 /***** End Slideshow Styling *****/
 
@@ -337,12 +346,6 @@ footer {
     background-color: #4d4d4d;
 }
 
-/* This class is applied to the columns in the final row, overriding the height and padding to provide more room for the contact form  while keeping the rest of the formatting from Column_1 or Column_2*/
-.Column_tall {
-    padding-top: 3.5%;
-    height: 450px;
-}
-
 /* This inserts something after the content of selected elements (in this case the elements with class "Row") */
 .Row:after {
 	content: ""; /* By leaving this blank, we are allowing the footer (covered lower down) to be displayed - removing it makes the footer overwrite a column */
@@ -354,56 +357,83 @@ footer {
 /***** Contact Form Styling *****/
 /* Button used to open the contact form - fixed at the bottom of the page */
 .Pop_Up_Button {
-    bottom: 1.75vw;
-    right: 1.75vw;
-    width: 25vw;
-    background-color: white;
-    color: black;
-    border: solid;
-    cursor: pointer;
-    position: fixed;
-    -webkit-animation: movePopup 5s;
-    animation: movePopup 5s;
+    position: fixed; /* The element is positioned relative to the viewport and stays in the same location no matter what */
+    bottom: 1.75vw; /* Positions the button slightly up from the bottom of the viewport */
+    right: 1.75vw; /* Positions the viewport slightly right from the side of the viewport */
+    width: 25vw; /* Sets the width relative to the viewport width */
+    background-color: white; /* Sets the background color of the button to white */
+    color: black; /* Sets the color of the button text to black */
+    border: solid black; /* This makes a solid black border around the button */
+    cursor: pointer; /* This changes the cursor when hovered over the button to a pointer */
+    -webkit-animation: movePopup 5s; /* Animation for 5 seconds for Safari 4.0-8.0 */
+    animation: movePopup 5s; /* Animation set for 5 seconds */
 }
 
+/* movePopup animation moves the button from off the right side of the screen to its fixed location on the viewport */
 @keyframes movePopup {
-    from {right: -40vw;}
-    to {bottom: 1.75vw;}
+    from {right: -40vw;} 
+    to {right: 1.75vw;}
 }
 
+@-webkit-keyframes movePopup {
+    from {right: -40vw;} 
+    to {right: 1.75vw;}
+}
+
+/* Styling for the contact form */
 .form-popup {
-    border: 3px solid #f0f1f0;
-    z-index: 8;
-    display: none;
-    position: fixed;
-    bottom: 6px;
-    right: 6px;
+    border: 3px solid #f0f1f0; /* Creates a solid light gray border around the contact form */
+    z-index: 8; /* This z-index ensures the contact form shows above all other elements on the page */
+    display: none; /* Set the display to none, we will use JavaScript to show the contact form */
+    position: fixed; /* The form stays in the same location no matter what */
+    bottom: .5vw; /* Slightly up from the bottom of the viewport */
+    right: .5vw; /* Slightly in from the right side of the viewport */
 }
 
 /* Form styling */
 .form-container {
-    max-width: 49vw;
-    padding: 9px;
-    background-color: white;
+    max-width: 49vw; /* Relative sizing of the form container - 49% of the viewport width */
+    padding: 1vw; /* Adds padding between the form-popup and the form-container */
+    background-color: white; 
 }
 
 /* Input fields */
-.form-container input[type=text], .form-container input[type=password] {
-    width: 100%;
-    padding: .93vw;
-    margin: .6vw 0 .6vw 0;
-    border: none;
-    background: Gainsboro;
-    font-family: Helvetica, Avant Garde;
-    font-size: 1vw;
+.form-container input[type=text] {
+    width: 100%; /* The input boxes completely fill the width of the form-container */
+    padding: .93vw; /* Adds padding to the input boxes */
+    margin: .6vw 0 .6vw 0; /* Adds space between the input boxes and the labels */
+    border: none; /* Removes the border from the input boxes */
+    background: Gainsboro; /* Sets the background color of the input boxes */
+    font-size: 1vw; /* Relative font sizing based on the width of the viewport */
+}
+
+/* General styling for all buttons */
+button {
+    font-family: "Trebuchet MS", Optima;
+    letter-spacing: .3vw; /* Adds slight spacing between the letters */
+    font-size: 1.5vw; /* Relative sizing of text */
+    font-weight: bold; 
+    padding: 1.5vw; /* Adds padding to the text in the button */
+    cursor: pointer; /* Changes the cursor to pointer over button elements */
+    width: 100%; /* Sets the width of the buttons to 100% of their containers */
+    height: auto; /* Allows the height to be resized depending on the content showing */
+}
+
+/* Hover effect for contact and submit buttons */
+button:hover, .form-container .btn:hover {
+    color: white; /* This makes the text in the buttons white when hovered over */
+    background-color: black; /* The background of the button changes to black when hovered over */
+    transition-duration: 1s; /* This makes the transition last 1 second */
+    -webkit-transition-duration: 1s; /* For Safari 4.0-8.0 */
+    border-color: silver; /* The border turns silver when the button is hovered over */
 }
 
 /* Submit button */
 .form-container .btn {
-    background-color: white;
+    background-color: white; 
     color: black;
     border-color: black;
-    margin-bottom: 1vh;
+    margin-bottom: 1vh; /* Adds space between the submit button and the close button */
 }
 
 /* Close button */
@@ -413,35 +443,12 @@ footer {
     border-color: gray;
 }
 
-/* Button styling */
-button {
-    font-family: "Trebuchet MS", Optima;
-    letter-spacing: .3vw;
-    font-size: 1.5vw;
-    font-weight: bold;
-    padding: 1.5vw 1.5vw;
-    border-style: solid;
-    cursor: pointer;
-    width: 100%;
-    height: auto;
-}
-
-/* Hover effect for buttons */
-button:hover, .form-container .btn:hover {
-    color: white;
-    background-color: black;
-    -webkit-transition-duration: 1s;
-    transition-duration: 1s;
-    border-style: solid;
-    border-color: silver;
-}
-
+/* Styling for close button on hover */
 .form-container .cancel:hover {
     color: white;
     background-color: darkred;
-    -webkit-transition-duration: 1s;
     transition-duration: 1s;
-    border-style: solid;
+    -webkit-transition-duration: 1s;
     border-color: black;
 }
 /***** End of Contact Form Styling *****/
