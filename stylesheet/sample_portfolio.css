@@ -14,6 +14,7 @@ body {
     font-family: Avant Garde, Helvetica;
     font-size: 1.5vw; 
     overflow-x: hidden; /* This prevents the horizontal scroll bar from appearing when the quote is hovered over */
+    user-select: none; /* This prevents the text on the webpage from being highlighted by the user */
 }
 
 /* This section contributes to the fade effect for the page that occurs when the page is loaded */
@@ -73,6 +74,8 @@ p:hover {
 /* Anchor elements */
 a {
     color: blue; /* This ensures all links are blue */
+    cursor: pointer; /* This ensures all links change the mouse to a pointer when hovered over or clicked */
+    text-decoration: underline; /* This ensures all links are underlined */
 }
 
 /* Quotation elements */
@@ -93,8 +96,6 @@ img {
 /* Image element hover effects */
 img:hover {
 	filter: grayscale(5%);  /* Brings back most of the image's color when hovered over */
-    transition: transform 1s; /* Transition lasts 1 second */
-	transform: scale(1.1); /* Image is increased slightly when hovered over */
 }
 
 /* The @media rule is used in media queries to apply different styles for different media/types of devices */
@@ -144,7 +145,6 @@ footer {
     position: relative; /* This sets the text relative to its normal positioning, allowing us to use the animation below */
     -webkit-animation: moveNavText 5.75s; /* Animation for Safari 4.0 - 8.0 */
     animation: moveNavText 5.75s; /* Applies the moveNavText animation for 5.75s */ 
-    user-select: none; /* This prevents the navbar links from being highlighted when the user doubleclicks to close the contact form */
 }
 
 /* The animation effect for moving the nav bar links in from above the top of the screen on page load */

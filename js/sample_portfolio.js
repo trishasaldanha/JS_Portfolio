@@ -11,7 +11,7 @@ function closeForm() {
 var slideIndex = 1;
 showSlides(slideIndex);
 
-//This function changes the slide when the left or right arrows are clicked
+// This function changes the slide when the left or right arrows are clicked
 function plusSlides(n) {
     showSlides(slideIndex += n);
 }
