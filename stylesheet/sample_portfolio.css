@@ -404,7 +404,6 @@ footer {
 
 /* Styling for the contact form */
 .form-popup {
-    border: 3px solid #f0f1f0; /* Creates a solid light gray border around the contact form */
     z-index: 8; /* This z-index ensures the contact form shows above all other elements on the page */
     display: none; /* Set the display to none, we will use JavaScript to show the contact form */
     position: fixed; /* The form stays in the same location no matter what */
