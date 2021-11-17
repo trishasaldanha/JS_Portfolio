@@ -36,3 +36,12 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block"; // This displays the image in the slideshow
     dots[slideIndex - 1].className += " active"; // This adds the active styling to the dot associated with the image
 }
+
+//add an event listener for any clicks on the website
+document.addEventListener("click", function(event){
+    if (event.target.matches(".cancel") || !event.target.closest(".form-popup") && !event.target.closest(".Pop_Up_Button") && !event.target.closest(".contact")
+    //here we state that if the click happens on the cancel button OR anywhere outside of the contact form AND the click does not happen on the contact button or any of the contact links then call the closeform function
+    ){
+        closeForm()
+    }
+}, false )

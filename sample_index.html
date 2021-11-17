@@ -20,7 +20,7 @@
             <a href="#About">About</a>
             <a href="#GitHub">GitHub</a>
             <!-- Onclick and ondblclick functions added to open and close the contact form -->
-            <a onclick="openForm()" ondblclick="closeForm()">Contact</a>
+            <a onclick="openForm()" ondblclick="closeForm()" class="contact">Contact</a>
         </div>
 
         <!-- Background video -->
@@ -82,7 +82,7 @@
                     <!-- Slide 6 of 6 -->
                     <div class="mySlides fade">
                         <img class="Slideshow_Images" src="images/Coding_1.jpg"> 
-                        <div class="text"><a class="white-text" onclick="openForm()" href="#Contact">Contact me now!</a></div> 
+                        <div class="text"><a class="white-text contact" onclick="openForm()">Contact me now!</a></div> 
                     </div>
                     <!-- Previous and next buttons -->
                     <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
@@ -116,7 +116,7 @@
                     <br>
                     <br>I am a graduate of <a href="https://www.learncodinganywhere.com" target="_blank">The Tech Academy</a>’s Software Developer Boot Camp, and trained and experienced in the following web and programming languages: HTML, CSS, JavaScript, SQL, Python, C# and more. 
                     <br>
-                    <br>I am a full-stack developer and would love to work with you on your project. <a onclick="openForm()">Contact</a> me below!
+                    <br>I am a full-stack developer and would love to work with you on your project. <a onclick="openForm()" class="contact">Contact</a> me below!
                 </p>
             </div>
         </div>
@@ -140,7 +140,7 @@
         <!-- Contact form -->
         <div id="Contact">
            <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
-           <div class="form-popup" id="myForm">
+           <div class="form-popup" id="myForm" ondblclick="closeForm()">
                 <form action="https://formspree.io/info@learncodinganywhere.com" method="POST" class="form-container"> <!-- Here we are using a free online service from https://formspree.io/ to send our contact form to an email address of our choosing - note: it will not run unless live on the internet, you have to push it to your online website first -->
                     <h1>Contact</h1>
                     <label for="name"><b>Name</b></label>
