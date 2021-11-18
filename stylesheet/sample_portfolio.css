@@ -62,12 +62,17 @@ p:hover {
 
 /* The @media rule is used in media queries to apply different styles for different media/types of devices */
 /* Media rule to modify the font size of extra large screens so that the text does not overflow the box */
-@media screen and (min-width: 1700px) {
+@media screen and (min-width: 1245px) {
     p {
         font-size: 1.25vw;
     } 
 }
 
+@media screen and (max-width: 1245px) {
+    p {
+        font-size: 2vw;
+    }
+}
 
 
 /* Center class - this applies to all centered text */
@@ -113,6 +118,13 @@ img:hover {
     .Column_2 img {
         height: 100px;
         margin-top: 75px;
+    }
+}
+
+@media screen and (min-width: 577px) {
+    .Column_2 img {
+        height: 300px;
+        margin-top: 55px;
     }
 }
 
@@ -207,7 +219,7 @@ footer {
 }
 
 /* Media rules to enlarge the font of the white text for smaller screens */
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 845px) {
     .Video_Text, p.center{
         font-size: 3.5vw;
     }
@@ -358,7 +370,6 @@ footer {
         height: 250px;
     }
     .Column_2 {
-        overflow: auto;
         height: 250px;
     }
 }
