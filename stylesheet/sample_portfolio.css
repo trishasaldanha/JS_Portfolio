@@ -62,11 +62,6 @@ p:hover {
 
 /* The @media rule is used in media queries to apply different styles for different media/types of devices */
 /* Media rule to modify the font size of extra large screens so that the text does not overflow the box */
-@media screen and (min-width: 1245px) {
-    p {
-        font-size: 1.25vw;
-    } 
-}
 
 @media screen and (max-width: 1245px) {
     p {
@@ -74,7 +69,17 @@ p:hover {
     }
 }
 
+@media screen and (min-width: 1245px) and (max-width: 1650px) {
+    p {
+        font-size: 1.5vw;
+    } 
+}
 
+@media screen and (min-width: 1651px) {
+    p {
+        font-size: .9vw;
+    }
+}
 /* Center class - this applies to all centered text */
 .center {
     text-align: center; /* This center aligns the text */
@@ -103,7 +108,6 @@ img {
     filter: grayscale(75%); /* This rids our pictures of 75% of their color */
     border-radius: 8px; /* Gives all images slightly rounded corners */
     max-width: 100%; /* Ensures all images stay within the width of their container */
-    height: 100%; /* Sets the height of all images */
     display: block; /* By specifying block display we can ensure our images are able to be centered */
     margin: auto auto auto auto; /* This centers all images */
 }
@@ -123,7 +127,7 @@ img:hover {
 
 @media screen and (min-width: 577px) {
     .Column_2 img {
-        height: 300px;
+        max-height: 300px;
         margin-top: 55px;
     }
 }
