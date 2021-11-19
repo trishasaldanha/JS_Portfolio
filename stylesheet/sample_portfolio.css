@@ -31,6 +31,8 @@ h1 {
     color: #1a1a1a; 
 }
 
+
+
 /* Heading 1 element hover effect */
 h1:hover {
     filter: grayscale(5%); /* Adds a slightly gray filter to the h1 headings when hovered over */
@@ -60,26 +62,9 @@ p:hover {
 	transform: scale(1.01); /* This makes the paragraphs increase slightly in size when hovered over */
 }
 
-/* The @media rule is used in media queries to apply different styles for different media/types of devices */
-/* Media rule to modify the font size of extra large screens so that the text does not overflow the box */
 
-@media screen and (max-width: 1245px) {
-    p {
-        font-size: 2vw;
-    }
-}
 
-@media screen and (min-width: 1245px) and (max-width: 1650px) {
-    p {
-        font-size: 1.5vw;
-    } 
-}
 
-@media screen and (min-width: 1651px) {
-    p {
-        font-size: .9vw;
-    }
-}
 /* Center class - this applies to all centered text */
 .center {
     text-align: center; /* This center aligns the text */
@@ -108,6 +93,7 @@ img {
     filter: grayscale(75%); /* This rids our pictures of 75% of their color */
     border-radius: 8px; /* Gives all images slightly rounded corners */
     max-width: 100%; /* Ensures all images stay within the width of their container */
+    max-height: 100%;
     display: block; /* By specifying block display we can ensure our images are able to be centered */
     margin: auto auto auto auto; /* This centers all images */
 }
@@ -117,20 +103,7 @@ img:hover {
 	filter: grayscale(5%);  /* Brings back most of the image's color when hovered over */
 }
 
-/* On screens 576px and smaller the images in the Column_2 classes will be 100px tall and centered vertically in the column */
-@media screen and (max-width: 576px) {
-    .Column_2 img {
-        height: 100px;
-        margin-top: 75px;
-    }
-}
 
-@media screen and (min-width: 577px) {
-    .Column_2 img {
-        max-height: 300px;
-        margin-top: 55px;
-    }
-}
 
 /*Styling for footer element */
 footer {
@@ -178,20 +151,13 @@ footer {
     to {top: 0vw;} /* This lowers the navbar text onto the navbar */
 }
 
-/* Screens 1080px and smaller will display navbar links equally distributed */
-@media screen and (max-width: 1080px) {
-    .Navbar a{
-        width: 20%; /* This sets each navbar link to 1/5 of the navbar */
-        font-size: 2.5vw;
-    }
-}
 
 /*Navbar hover effects */
 .Navbar a:hover {
     background-color: #f4f4f4; /* Defines the background color that will display when you hover over the link */
     color: black; /* This defines the font color that will display when navbar a elements are hovered over */
     cursor: pointer;
-    transition: 1s ease-in;
+    transition: 0.5s ease-in;
 }
 
 /* Navbar home button */
@@ -222,12 +188,7 @@ footer {
     animation: moveVideoText 5.75s; /* moveVideoText animation set to 5.75s to match the movenavText animation */
 }
 
-/* Media rules to enlarge the font of the white text for smaller screens */
-@media screen and (max-width: 845px) {
-    .Video_Text, p.center{
-        font-size: 3.5vw;
-    }
-}
+
 
 /* This animation effect causes the overlay video text to move up from the bottom of the page upon page load */
 @keyframes moveVideoText {
@@ -356,7 +317,7 @@ footer {
     float: left;
     width: 50%; /* This ensures the column takes up half of the page width */
     padding: 1.6%;
-    height: 450px; /* This sets the height of the column to 400px -  this may need to be adjusted depending on the text you enter */
+    height: 450px; /* This sets the height of the column to 450px -  this may need to be adjusted depending on the text you enter */
     background-color: #f2f2f2; /* Sets the background color of the left columns */
 }
 
@@ -368,15 +329,7 @@ footer {
     background-color: #4d4d4d;
 }
 
-/* Setting the height of the Column_1 and Column_2 classes for screens smaller than 576px */
-@media screen and (max-width: 576px) {
-    .Column_1 {
-        height: 250px;
-    }
-    .Column_2 {
-        height: 250px;
-    }
-}
+
 
 /* This inserts something after the content of selected elements (in this case the elements with class "Row") */
 .Row:after {
@@ -484,3 +437,95 @@ button:hover, .form-container .btn:hover {
 }
 /***** End of Contact Form Styling *****/
 
+/*Media rules for paragraph font size for different screen sizes*/
+@media screen and (max-width: 527px) {
+    p {
+        font-size: 3.75vw;
+    }
+}
+
+@media screen and (min-width: 528px) and (max-width: 660px) {
+    p {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (min-width: 661px) and (max-width: 799px) {
+    p {
+        font-size: 2.75vw;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 924px) {
+    p {
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (min-width: 925px) and (max-width: 1050px) {
+    p {
+        font-size: 2.25vw;
+    }
+}
+
+@media screen and (min-width: 1051px) and (max-width: 1310px) {
+    p {
+        font-size: 2vw;
+    } 
+}
+
+@media screen and (min-width: 1311px) and (max-width: 1535px) {
+    p {
+        font-size: 1.75vw;
+    }
+}
+
+@media screen and (min-width: 1536px) and (max-width: 2269px) {
+    p {
+        font-size: 1.5vw;
+    }
+}
+
+@media screen and (min-width: 2270px) {
+    p {
+        font-size: 1.35vw;
+    }
+}
+
+/*Media rule for navbar links for different screen sizes*/
+/* Screens 1080px and smaller will display navbar links equally distributed */
+@media screen and (max-width: 1080px) {
+    .Navbar a{
+        width: 20%; /* This sets each navbar link to 1/5 of the navbar */
+        font-size: 2.5vw;
+    }
+}
+
+/* Media rules to enlarge the font of the white text for smaller screens */
+@media screen and (max-width: 1080px) {
+    .quote{
+        font-size: 3.5vw;
+    }
+
+    .white-text {
+        font-size: 4.5vw;
+    }
+}
+
+/* Media rules to increase the size of the columns for larger screens */
+@media screen and (min-width: 1725px) {
+    .Column_1 {
+        height: 550px;
+    }
+    .Column_2 {
+        height: 550px;
+    }
+}
+
+
+/*Media rule to remove margin-top from h1 elements for extra large screens (so that the paragraph text fits in the column*/
+@media screen and (min-width: 2000px) {
+    h1{
+        margin-top: 0;
+    }
+}
